@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int matrix[1000][1001] = {0};
 int mano[1001] = {0};
 int szin[2][1001][20] = {0};
@@ -10,7 +9,7 @@ char *lanc;
 int rec(int si, int mi){
 
     if(lanc[si] == 'D' || matrix[si][mi]) return matrix[si][mi];
-    
+
     int i, player = lanc[si] == 'B' ? 0 : 1;
 
     for(i = 0; szin[player][mi][i]; i++){
@@ -26,8 +25,10 @@ int rec(int si, int mi){
           return -1;
         }
     }
+
     return matrix[si][mi] = szin[player][mi][0];
 }
+
 
 void printmatrix(int N, int L){
     int i, j;
@@ -42,7 +43,7 @@ void printmatrix(int N, int L){
 
 int main()
 {
-    int L, N, F, i,j,k,l;
+    int L, N, F, i,j,k,l, lepes;
     scanf("%d %d %d", &L, &N, &F);
     char s[L];
     scanf("%s", s);
@@ -58,11 +59,25 @@ int main()
 
     for(i = 0; i < N; i++) matrix[L-1][i+1] = mano[i+1] == 1 ? -1 : 1;
 
-    printmatrix(N, L);
+
+    //printmatrix(N, L);
 
     rec(0, F);
+    lepes = F;
 
-    printmatrix(N, L);
+    for(i = 0; lanc[i] != 'D'; i++){
+        int csapat = mano[lepes];
+
+        if(csapat){
+            setNext(matrix[i][lepes]);
+            lepes = matrix[i][lepes];
+        }
+        else lepes = getNext();
+    }
+    finish();
+
+    // printmatrix(N, L);
 
     return 0;
 }
+

@@ -1,0 +1,15 @@
+A feladat megoldásához az egyes sorokból le kell szűrnünk az angol ABC betűit, majd azokat át kell
+alakítanunk csupa kisbetűre, az így kialakított sztring a következő esetekben magic square palindrome:
+
+- A sztring mérete 0 (0x0 magic square palindrome)
+- A sztring mérete négyzetszám és a sztringből kialakított NxN mátrix, valamint annak transzponáltja palindróm
+
+Egy egész szám négyzetszám, ha abból gyököt vonva egész számot kapok.
+
+ (n = sqrt(len)) != sqrt(len)
+n int típusú, így az sqrt() eredményének törtrésze levágódik, az összehasonlítás miatt azonban n
+egy double típussá convertálódik, ha így megegyezik a szám eredeti gyökével, akkor a szám négyzetszám.
+
+Ha tudjuk, hogy a sztring mérete négyzetszám, akkor azt négyzetmátrixként kezelve transzponáljuk,
+ha az így kapott sztring és az eredeti sztring palindrómok, akkor a teszteset egy magic square palindrome.
+

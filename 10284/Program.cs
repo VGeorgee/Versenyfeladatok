@@ -9,11 +9,11 @@ namespace ChessBoard
 
     class Chess
     {
-        private int[, ] chess;
+        private int[, ] _chess;
 
     public Chess(String s)
         {
-            chess = new int[8, 8];
+            _chess = new int[8, 8];
             String[] row = s.Split('/');
             for (int i = 0; i < row.Length; i++)
             {
@@ -23,7 +23,7 @@ namespace ChessBoard
                     if (Char.IsDigit(row[i][k]))
                         j += row[i][k] - '0';
                     else
-                        chess[i, j++] = row[i][k];
+                        _chess[i, j++] = row[i][k];
                 }
             }
         }
@@ -45,13 +45,13 @@ namespace ChessBoard
 
         public void setAttack(int x, int y)
         {
-            if (valid(x, y) && chess[x,y] == 0)
-                chess[x, y] = 1;
+            if (valid(x, y) && _chess[x,y] == 0)
+                _chess[x, y] = 1;
         }
 
         public int getFieldValue(int x, int y)
         {
-            return chess[x, y];
+            return _chess[x, y];
         }
 
         public int getResult()
@@ -59,7 +59,7 @@ namespace ChessBoard
             int db = 0;
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
-                    if (chess[i, j] == 0) db++;
+                    if (_chess[i, j] == 0) db++;
             return db;
         }
 

@@ -1,0 +1,15 @@
+A feladat megoldásához az összes, a táblán lévő, bábú lépéseinek szimulálásával juthatunk el,
+jelölnünk kell, hogy melyik pozíciókon állnak bábúk, valamint, hogy ezek a bábúk mely pozíciókat támadhatják meg,
+az összes többi pozíció beleszámolódik az eredménybe.
+
+
+A <moves> 3 dimenziós tömbben tárolom, hogy mely [bábú][mely irányokba léphet][az (x,y) pozícióra],
+a nullás bábú a király, az egyes a huszár, nem kell azonban minden bábú lépéseit külön felvennünk,
+hiszen a király lépéseiből a paraszton kívül az összes bábú lépése kikombinálható a következőképp:
+
+- bástya: a király páratlan lépései. moves[0][i = {1, 3, 5, 7}]
+- futó:	 a király páros lépései. 	moves[0][i = {0, 2, 4, 6)]
+királynő: bástya + futó lépései.
+
+a Bástya, a Futó, és a Királynő addig lép az általa léphető irányokba, amíg ki nem ér a pályáról, vagy
+másik bábúval nem találkozik

@@ -1,0 +1,7 @@
+alapvetően két n * n mátrix elég a feladat megoldásához, ezekben tárolom el az inputot,
+majd a két mátrixot egyszerre járom be.
+Mindkét mátrixot módosítom a bejárás során, ha adott pozíción a lépéses mátrixban
+x található és nincs alatta akna akkor 0-ra állítom, majd bejárom a szomszédos mezőket
+és ha a szomszédos mezőn akna található, akkor növelem az adott pozíció értékét.
+Ha adott pozíción x és akna is található, akkor a már módosított aknás, 
+egyéb esetben a lépéses mátrix kiírása a megoldás.
